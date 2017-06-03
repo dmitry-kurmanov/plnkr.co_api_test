@@ -6,19 +6,42 @@
 </head>
 
 <body>
-    <form method="post" action="https://plnkr.co/edit/?p=preview" target="_blank'">
+    <form id="plnkrForm" method="post" action="https://plnkr.co/edit/?p=preview" target="_blank'">
         <input type="hidden" name="tags[0]" value="surveyjs">
         <input type="hidden" name="private" value="true">
-        <input type="hidden" name="files[index.html]" value="html eeeee!!!">
-        <input type="hidden" name="files[index.js]" value="js eeeee!!!">
-        <input type="hidden" name="files[index.css]" value="css eeeee!!!">
-        <input type="hidden" name="description" value="eeeee!!!">
-
-
-        hello plnkr !!!
+        <input type="hidden" name="description" value="eeeee!!!"> hello plnkr !!!
 
         <button type="submit">GO</button>
     </form>
+
+    <script>
+        function readFile(fileName) {
+            var url = "/content/" + fileName;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+
+            xhr.overrideMimeType('text/plain; charset=x-user-defined');
+
+            xhr.onreadystatechange = function (e) {
+                if (this.readyState == 4 && this.status == 200) {
+                    var content = this.responseText;
+                    var input = document.createElement("input");
+                    var form = document.getElementById("plnkrForm");
+
+                    input.setAttribute("type", "hidden");
+                    input.setAttribute("name", "files[" + fileName + "]");
+                    input.setAttribute("value", content);
+                    form.appendChild(input);
+                }
+            };
+
+            xhr.send();
+        }
+
+        readFile("index.html");
+        readFile("index.js");
+        readFile("index.css");
+    </script>
 </body>
 
 </html>
