@@ -1,0 +1,8 @@
+{
+    "tags[0]":"angularjs",
+    "tags[1]":"example",
+    "private":true,
+    "files[index.html]":"<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Example - example-ng-app-production</title>\n  \n\n  <script src=\"//code.angularjs.org/snapshot/angular.min.js\"></script>\n  <script src=\"script.js\"></script>\n  \n\n  \n</head>\n<body ng-app=\"ngAppDemo\">\n  <div ng-controller=\"ngAppDemoController\">\n  I can add: {{a}} + {{b}} =  {{ a+b }}\n</div>\n</body>\n</html>\n\n<!-- \nCopyright 2017 Google Inc. All Rights Reserved.\nUse of this source code is governed by an MIT-style license that\ncan be found in the LICENSE file at http://angular.io/license\n-->",
+    "files[script.js]": "(function(angular) {\n  'use strict';\nangular.module('ngAppDemo', []).controller('ngAppDemoController', function($scope) {\n  $scope.a = 1;\n  $scope.b = 2;\n});\n})(window.angular);\n\n/*\nCopyright 2017 Google Inc. All Rights Reserved.\nUse of this source code is governed by an MIT-style license that\ncan be found in the LICENSE file at http://angular.io/license\n*/",
+    "description": "EXAMPLE"
+}
